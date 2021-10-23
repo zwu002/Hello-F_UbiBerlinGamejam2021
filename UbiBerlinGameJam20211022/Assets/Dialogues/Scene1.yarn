@@ -1,0 +1,13 @@
+title: Scene1
+tags: 
+colorID: 0
+position: 903,672
+---
+Is hotdog a sandwich?
+-> Yes
+    And coffee is the best bean soup!
+    -> YEAH!!!
+-> No!
+    is sub sandwich a hotdog lying down?
+    -> It's a paradox!
+===
