@@ -13,6 +13,11 @@ public class GenerateDialogue : MonoBehaviour
     public GameObject selfDialogue;
     public GameObject fDialogue;
 
+    public GameObject selfWaitDialogue;
+    public GameObject fWaitDialogue;
+
+    public GameObject currentSelfWaitDialogue;
+
     [YarnCommand("switchIdentity")]
     public void switchIdentity(string identity)
     {
@@ -38,23 +43,50 @@ public class GenerateDialogue : MonoBehaviour
         }
         else
         {
-            CreateFDialogue();
+            StartCoroutine(CreateFDialogue());
         }
     }
 
-    void CreateFDialogue()
+    IEnumerator CreateFDialogue()
     {
+        GameObject waitingDialogue = CreateFWaitingDialogue();
+
+        yield return new WaitForSeconds(1.0f);
+
+        Destroy(waitingDialogue);
+
         GameObject newDialogue = Instantiate(fDialogue, new Vector3(0,0,0), Quaternion.identity, gameObject.transform);
         newDialogue.GetComponent<InitiateDialogueContent>().InitiateText(currentText.text);
 
         Debug.Log("F Dialogue Created!");
     }
 
-    void CreateSelfDialogue()
+    public void CreateSelfDialogue()
     {
         GameObject newDialogue = Instantiate(selfDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
         newDialogue.GetComponent<InitiateDialogueContent>().InitiateText(currentText.text);
 
         Debug.Log("Self Dialogue Created!");
+    }
+
+    public void CreateSelfWaitingDialogue()
+    {
+        currentSelfWaitDialogue = Instantiate(selfWaitDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
+
+        Debug.Log("Self Dialogue Waiting Created!");
+    }
+
+    public void DestroySelfWaitingDialogue()
+    {
+        Destroy(currentSelfWaitDialogue);
+    }
+
+    GameObject CreateFWaitingDialogue()
+    {
+        GameObject newDialogue = Instantiate(fWaitDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
+
+        Debug.Log("f Dialogue Waiting Created!");
+
+        return newDialogue;
     }
 }

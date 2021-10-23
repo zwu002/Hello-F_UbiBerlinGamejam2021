@@ -1,15 +1,17 @@
 title: Scene1
 tags: 
 colorID: 0
-position: 899,668
+position: 897,666
 ---
 <<switchIdentity Dialogue f>>
 Is hotdog a sandwich?
+<<wait 1>>
 -> Yes
     <<switchIdentity Dialogue self>>
     Yes?
     <<switchIdentity Dialogue f>>
     And coffee is the best bean soup!
+    <<wait 1>>
     -> YEAH!!!
     <<switchIdentity Dialogue self>>
     YEAH!!!!!!
@@ -18,6 +20,7 @@ Is hotdog a sandwich?
     ..no?
     <<switchIdentity Dialogue f>>
     then is sub sandwich a hotdog lying down?
+    <<wait 1>>
     -> It's a paradox!
     <<switchIdentity Dialogue self>>
     It's a paradox!
