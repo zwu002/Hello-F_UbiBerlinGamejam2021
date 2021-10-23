@@ -1,7 +1,7 @@
 title: Scene1
 tags: 
 colorID: 0
-position: 896,663
+position: 891,660
 ---
 <<switchIdentity Dialogue f>>
 Yo
@@ -18,7 +18,8 @@ Is hotdog a sandwich?
 -> Yes
     <<switchIdentity Dialogue self>>
     Yes?
-    <<SetWaitTime .8>>
+    <<wait 0.5>>
+    <<SetWaitTime 0>>
     <<switchIdentity Dialogue f>>
     And coffee is the best bean soup!
     <<SetWaitTime 2.5>>
@@ -26,10 +27,13 @@ Is hotdog a sandwich?
     -> YEAH!!!
     <<switchIdentity Dialogue self>>
     YEAH!!!!!!
-        <<SetWaitTime 1>>
+    <<wait 0.5>>
+    <<SetWaitTime 0.5>>
 -> No!
     <<switchIdentity Dialogue self>>
     ..no?
+    <<wait 0.5>>
+    <<SetWaitTime 0.5>>
     <<switchIdentity Dialogue f>>
     then is sub sandwich a hotdog lying down?
     <<SetWaitTime 2.5>>
@@ -37,4 +41,6 @@ Is hotdog a sandwich?
     -> It's a paradox!
     <<switchIdentity Dialogue self>>
     It's a paradox!
+    <<wait 0.5>>
+    <<SetWaitTime 0.5>>
 ===

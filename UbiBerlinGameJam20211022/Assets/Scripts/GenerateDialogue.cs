@@ -20,6 +20,8 @@ public class GenerateDialogue : MonoBehaviour
 
     public GameObject currentSelfWaitDialogue;
 
+    public GameObject answerText;
+
     public float waitTime = 0f;
 
     public void Awake()
@@ -39,6 +41,8 @@ public class GenerateDialogue : MonoBehaviour
 
     private IEnumerator DoWait(System.Action onComplete, float time)
     {
+        answerText.SetActive(false);
+
         GameObject waitingDialogue = CreateFWaitingDialogue();
 
         yield return new WaitForSeconds(time - 0.5f);
