@@ -5,30 +5,34 @@ position: 896,663
 ---
 <<switchIdentity Dialogue f>>
 Yo
-<<wait 1.2>>
+<<SetWaitTime 1>>
+<<wait 0.5>>
 Yoyoyo
-<<wait 1.2>>
+<<SetWaitTime 1.5>>
 yoyoyoyoyoyoyoyooooooooooo
-<<wait 1.2>>
+<<SetWaitTime 2>>
+<<wait 1>>
 Is hotdog a sandwich?
-<<wait 1.2>>
+<<SetWaitTime 2.5>>
 <<SetLie1 true>>
 -> Yes
     <<switchIdentity Dialogue self>>
     Yes?
+    <<SetWaitTime .8>>
     <<switchIdentity Dialogue f>>
     And coffee is the best bean soup!
-    <<wait 1.2>>
+    <<SetWaitTime 2.5>>
     <<SetLie1 false>>
     -> YEAH!!!
     <<switchIdentity Dialogue self>>
     YEAH!!!!!!
+        <<SetWaitTime 1>>
 -> No!
     <<switchIdentity Dialogue self>>
     ..no?
     <<switchIdentity Dialogue f>>
     then is sub sandwich a hotdog lying down?
-    <<wait 1>>
+    <<SetWaitTime 2.5>>
     <<SetLie1 false>>
     -> It's a paradox!
     <<switchIdentity Dialogue self>>

@@ -6,6 +6,8 @@ using TMPro;
 
 public class GenerateDialogue : MonoBehaviour
 {
+    public DialogueRunner dialogueRunner;
+
     public bool isSelf = false;
 
     public TextMeshProUGUI currentText;
@@ -18,20 +20,48 @@ public class GenerateDialogue : MonoBehaviour
 
     public GameObject currentSelfWaitDialogue;
 
+    public float waitTime = 0f;
+
+    public void Awake()
+    {
+        dialogueRunner.AddCommandHandler(
+            "SetWaitTime",     // the name of the command
+            SetWaitTime // the method to run
+        );
+    }
+
+    private void SetWaitTime(string[] parameters, System.Action onComplete)
+    {
+        waitTime = float.Parse(parameters[0]);
+
+        StartCoroutine(DoWait(onComplete, waitTime));
+    }
+
+    private IEnumerator DoWait(System.Action onComplete, float time)
+    {
+        GameObject waitingDialogue = CreateFWaitingDialogue();
+
+        yield return new WaitForSeconds(time - 0.5f);
+
+        Destroy(waitingDialogue);
+
+        CreateDialogue();
+
+        yield return new WaitForSeconds(0.5f);
+
+        onComplete();
+    }
+
     [YarnCommand("switchIdentity")]
     public void switchIdentity(string identity)
     {
-        Debug.Log("Switch identity to: ");
-
         if (identity == "self")
         {
             isSelf = true;
-            Debug.Log("Self!");
         }
         else
         {
             isSelf = false;
-            Debug.Log("f!");
         }
     }
 
@@ -43,18 +73,12 @@ public class GenerateDialogue : MonoBehaviour
         }
         else
         {
-            StartCoroutine(CreateFDialogue());
+            CreateFDialogue();
         }
     }
 
-    IEnumerator CreateFDialogue()
+    void CreateFDialogue()
     {
-        GameObject waitingDialogue = CreateFWaitingDialogue();
-
-        yield return new WaitForSeconds(1.0f);
-
-        Destroy(waitingDialogue);
-
         GameObject newDialogue = Instantiate(fDialogue, new Vector3(0,0,0), Quaternion.identity, gameObject.transform);
         newDialogue.GetComponent<InitiateDialogueContent>().InitiateText(currentText.text);
 
@@ -83,6 +107,11 @@ public class GenerateDialogue : MonoBehaviour
 
     GameObject CreateFWaitingDialogue()
     {
+        if (isSelf)
+        {
+            return null;
+        }
+
         GameObject newDialogue = Instantiate(fWaitDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
 
         Debug.Log("f Dialogue Waiting Created!");

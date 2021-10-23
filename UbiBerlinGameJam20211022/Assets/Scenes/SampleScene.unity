@@ -2397,6 +2397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1963c49ef86030348bc70106164ab74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueRunner: {fileID: 690348147}
   isSelf: 0
   currentText: {fileID: 1242075867}
   selfDialogue: {fileID: 6730140749988214624, guid: 02442431438a1064a85edf571c0948bb, type: 3}
@@ -2404,6 +2405,7 @@ MonoBehaviour:
   selfWaitDialogue: {fileID: 6730140749988214624, guid: 2d18d4d7f583e534d923876d3ea605fb, type: 3}
   fWaitDialogue: {fileID: 6730140749988214624, guid: bde134b6944ab0049b9a5856030c8181, type: 3}
   currentSelfWaitDialogue: {fileID: 0}
+  waitTime: 0
 --- !u!114 &1985129369
 MonoBehaviour:
   m_ObjectHideFlags: 0
