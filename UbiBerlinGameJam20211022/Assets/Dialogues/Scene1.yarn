@@ -1,7 +1,7 @@
 title: Scene1
 tags: 
 colorID: 0
-position: 897,665
+position: 896,663
 ---
 <<switchIdentity Dialogue f>>
 Yo
@@ -12,12 +12,14 @@ yoyoyoyoyoyoyoyooooooooooo
 <<wait 1.2>>
 Is hotdog a sandwich?
 <<wait 1.2>>
+<<SetLie1 true>>
 -> Yes
     <<switchIdentity Dialogue self>>
     Yes?
     <<switchIdentity Dialogue f>>
     And coffee is the best bean soup!
     <<wait 1.2>>
+    <<SetLie1 false>>
     -> YEAH!!!
     <<switchIdentity Dialogue self>>
     YEAH!!!!!!
@@ -27,6 +29,7 @@ Is hotdog a sandwich?
     <<switchIdentity Dialogue f>>
     then is sub sandwich a hotdog lying down?
     <<wait 1>>
+    <<SetLie1 false>>
     -> It's a paradox!
     <<switchIdentity Dialogue self>>
     It's a paradox!
