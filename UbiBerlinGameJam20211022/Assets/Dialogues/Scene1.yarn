@@ -1,17 +1,23 @@
 title: Scene1
 tags: 
 colorID: 0
-position: 897,666
+position: 897,665
 ---
 <<switchIdentity Dialogue f>>
+Yo
+<<wait 1.2>>
+Yoyoyo
+<<wait 1.2>>
+yoyoyoyoyoyoyoyooooooooooo
+<<wait 1.2>>
 Is hotdog a sandwich?
-<<wait 1>>
+<<wait 1.2>>
 -> Yes
     <<switchIdentity Dialogue self>>
     Yes?
     <<switchIdentity Dialogue f>>
     And coffee is the best bean soup!
-    <<wait 1>>
+    <<wait 1.2>>
     -> YEAH!!!
     <<switchIdentity Dialogue self>>
     YEAH!!!!!!
