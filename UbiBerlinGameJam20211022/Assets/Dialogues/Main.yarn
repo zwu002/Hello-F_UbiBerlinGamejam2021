@@ -3,6 +3,8 @@ tags:
 colorID: 0
 position: 884,653
 ---
+<<SetLie1 false>>
+<<SetLie2 false>>
 <<switchIdentity Dialogue f>>
 <<AddTimer Dialogue>>
 Hey
@@ -95,9 +97,11 @@ in real life haha
 ===
 title: Scene2
 tags: 
-colorID: 7
-position: 1117,655
+colorID: 0
+position: 1115,652
 ---
+<<SetLie1 false>>
+<<SetLie2 false>>
 <<switchIdentity Dialogue self>>
 <<AddTimer Dialogue>>
 Heyo
@@ -164,7 +168,9 @@ Are u watching it now?
 <<switchIdentity Dialogue self>>
 Sure haha
 <<SetWaitTime 1>>
+<<switchIdentity Dialogue f>>
 -> Tell me what you think!
+    <<switchIdentity Dialogue self>>
     Remember to tell me if you like it!
     <<SetWaitTime 0.5>>
     I really enjoy it!
@@ -178,7 +184,9 @@ Sure haha
         I'll recommend more shows in the future!
         <<SetWaitTime 0.5>>
 -> We can watch together
+    <<set $IsWatchTogether to true>>
     <<wait 1>>
+    <<switchIdentity Dialogue self>>
     actually, I was thinking
     <<SetWaitTime 1>>
     <<wait 1>>
@@ -217,28 +225,526 @@ see you!!!
 title: Scene3
 tags: 
 colorID: 0
-position: 1344,644
+position: 1340,642
 ---
-Empty Text
+<<SetLie1 false>>
+<<SetLie2 false>>
+<<switchIdentity Dialogue f>>
+<<AddTimer Dialogue>>
+<<if $IsWatchTogether is false>>
+<<wait 1>>
+I've finished it!!
+<<SetWaitTime 1>>
+<<wait 0.5>>
+The octopus game
+<<SetWaitTime 1>>
+It's really good!!!
+<<SetWaitTime 2>>
+<<wait 1.5>>
+Thank you <3
+<<SetWaitTime 2>>
+-> Glad you like it
+    <<switchIdentity Dialogue self>>
+    I'm glad you like it!!
+    <<SetWaitTime 1>>
+-> Will recommend more
+    <<switchIdentity Dialogue self>>
+    I'll send you more next time!!
+    <<SetWaitTime 2>>
+<<switchIdentity Dialogue f>>
+<<wait 2>>
+weeeee
+<<SetWaitTime 1>>
+<<endif>>
+<<if $IsWatchTogether is true>>
+<<wait 1>>
+Yo
+<<SetWaitTime 0.5>>
+<<wait 1>>
+Sorry I finished the show faster than you
+<<SetWaitTime 4>>
+<<wait 2>>
+It's too good and I can't stop!!
+<<SetWaitTime 3>>
+-> That's ok
+    <<switchIdentity Dialogue self>>
+    That's ok
+    <<SetWaitTime 1>>
+    We can watch another show next time
+    <<SetWaitTime 1>>
+-> I'm too busy
+    <<switchIdentity Dialogue self>>
+    Nah, it's just me too busy
+    <<SetWaitTime 1.5>>
+    I don't even know what I do everyday
+    <<SetWaitTime 0.5>>
+    I just don't have time to relax
+    <<SetWaitTime 1>>
+<<switchIdentity Dialogue f>>
+<<wait 2>>
+don't worry XD
+<<SetWaitTime 0.8>>
+u can watch Nutflex anytime!
+<<SetWaitTime 2>>
+<<wait 1>>
+:P
+<<SetWaitTime 0.5>>
+<<endif>>
+<<wait 1>>
+-> I saw you today with someone
+    <<switchIdentity Dialogue self>>
+    btw
+    <<SetWaitTime 0.5>>
+    I saw you today with someone
+    <<SetWaitTime 1>>
+    is that your roomate?
+    <<SetWaitTime 0.5>>
+<<wait 3>>
+<<switchIdentity Dialogue f>>
+No, just a friend
+<<SetWaitTime 2>>
+<<wait 1>>
+we play board games together!
+<<SetWaitTime 2.5>>
+<<wait 2>>
+Do you wanna join us?
+<<SetWaitTime 1.5>>
+Tonight at 7!!
+<<SetWaitTime 1.5>>
+<<wait 2>>
+<<SetLie1 true>>
+-> Sure, I love board games!
+    <<switchIdentity Dialogue self>>
+    <<set $IsBoardGame to true>>
+    <<SetLie1 false>>
+    Sure, I love board games!
+    <<SetWaitTime 0.5>>
+    I'm not very good at it tho :(
+    <<SetWaitTime 0.5>>
+    <<switchIdentity Dialogue f>>
+    <<wait 3>>
+    It's ok!!!!
+    <<SetWaitTime 1>>
+    We'll teach you ;)
+    <<SetWaitTime 1>>
+    <<wait 2>>
+    Will send you locations
+    <<SetWaitTime 2>>
+    <<wait 1>>
+    See you at 7 then!
+    <<SetWaitTime 2>>
+    <<SetLie1 false>>
+    -> See you
+        <<SetLie1 false>>
+        <<switchIdentity Dialogue self>>
+        See you then!!
+        <<SetWaitTime 0.5>>
+        <<wait 2>>
+        <<SetSceneEnd GameManager>>
+        <<wait 4>>
+        <<StartNextScene GameManager>>
+    -> Will try my best
+        <<switchIdentity Dialogue self>>
+        I'll try my best to win tonight XD
+        <<SetWaitTime 1>>
+        seeya!
+        <<SetLie1 false>>
+        <<SetWaitTime 0.5>>
+        <<wait 2>>
+        <<SetSceneEnd GameManager>>
+        <<wait 4>>
+        <<StartNextScene GameManager>>
+-> What about another event?
+    <<switchIdentity Dialogue self>>
+    <<SetLie1 false>>
+    eghh
+    <<SetWaitTime 0.5>>
+    I'm not a fan of board games..
+    <<SetWaitTime 1>>
+    There's too many people!
+    <<SetWaitTime 1>>
+    <<switchIdentity Dialogue f>>
+    ->Art museum?
+        <<switchIdentity Dialogue self>>
+        Maybe we go to art museum this weekend?
+        <<SetWaitTime 1>>
+    ->Zoo?
+        <<switchIdentity Dialogue self>>
+        What about zoo this weekend?
+        <<SetWaitTime 1>>
+        I want to see red pandas!!
+        <<SetWaitTime 1>>
+    <<switchIdentity Dialogue f>>
+    <<wait 3>>
+    I'm only free at Saturday afternoon :/
+    <<SetWaitTime 4>>
+    <<wait 1>>
+    but yeah, we can go
+    <<SetWaitTime 2>>
+    <<wait 1>>
+    Send me the details later then!
+    <<SetWaitTime 3>>
+    -> Okk!!
+        <<switchIdentity Dialogue self>>
+        Ok!!
+        <<SetWaitTime 0.5>>
+        See you at Saturday ;P
+        <<SetWaitTime 1>>
+        <<wait 2>>
+        <<SetSceneEnd GameManager>>
+        <<wait 4>>
+        <<StartNextScene GameManager>>
+    -> Enjoy your evening
+        <<switchIdentity Dialogue self>>
+        No problem!
+        <<SetWaitTime 0.5>>
+        Enjoy your evening with friends!!
+        <<SetWaitTime 1>>
+        <<wait 2>>
+        <<SetSceneEnd GameManager>>
+        <<wait 4>>
+        <<StartNextScene GameManager>>
 ===
 title: Scene4
 tags: 
 colorID: 0
-position: 1583,647
+position: 1580,644
 ---
-Empty Text
+<<SetLie1 false>>
+<<SetLie2 false>>
+<<switchIdentity Dialogue f>>
+<<AddTimer Dialogue>>
+<<wait 1>>
+hey
+<<SetWaitTime 1>>
+<<wait 1>>
+hope you are ok
+<<SetWaitTime 2>>
+<<wait 4>>
+i feel sorry to refuse your confession
+<<SetWaitTime 3>>
+<<wait 1>>
+you are a good friend
+<<SetWaitTime 5>>
+<<wait 3>>
+<<if $IsBoardGame is false>>
+I enjoyed hanging out with you at weekends
+<<SetWaitTime 5>>
+<<wait 4>>
+but I enjoy other things a bit more
+<<SetWaitTime 3>>
+<<wait 3>>
+<<endif>>
+<<if $IsBoardGame is true>>
+I can tell you are not that into board games
+<<SetWaitTime 5>>
+<<wait 4>>
+you don't have to force yourself to do something you don't like
+<<SetWaitTime 5>>
+<<wait 3>>
+<<endif>>
+..
+<<SetWaitTime 0.5>>
+<<wait 1>>
+So I have to say no
+<<SetWaitTime 1.5>>
+<<wait 1>>
+hope you understand
+<<SetWaitTime 1.5>>
+<<wait 4>>
+we still good?
+<<SetWaitTime 2.5>>
+<<SetLie1 false>>
+<<SetLie2 true>>
+<<switchIdentity Dialogue f>>
+-> No, I need some time
+    <<SetLie2 false>>
+    <<switchIdentity Dialogue self>>
+    <<wait 2>>
+    No..
+    <<SetWaitTime 1.5>>
+    I think I just feel the wrong way
+    <<SetWaitTime 0.5>>
+    It's my problem i guess
+    <<SetWaitTime 2>>
+    I'm sorry to say those things to you
+    <<SetWaitTime 1>>
+    just, give me some time
+    <<SetWaitTime 1>>
+    <<wait 4>>
+    <<switchIdentity Dialogue f>>
+    sure
+    <<SetWaitTime 0.5>>
+    <<wait 3>>
+    i'm still here
+    <<SetWaitTime 1.5>>
+    <<wait 1>>
+    if you want to talk
+    <<SetWaitTime 1.5>>
+    <<wait 1>>
+    <<switchIdentity Dialogue self>>
+    ok
+    <<SetWaitTime 0.5>>
+    <<wait 1>>
+    Good night
+    <<SetWaitTime 1.5>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    good night
+    <<SetWaitTime 1.5>>
+    <<wait 2>>
+    <<SetSceneEnd GameManager>>
+    <<wait 4>>
+    <<StartNextScene GameManager>>
+-> Yeah, we still good
+    <<SetLie2 false>>
+    <<switchIdentity Dialogue self>>
+    <<wait 2>>
+    Yeah, I'm ok
+    <<SetWaitTime 2>>
+    It's better to say the true feelings, for both of us
+    <<SetWaitTime 2.5>>
+    We'll still be good friends
+    <<SetWaitTime 0.5>>
+    :)
+    <<SetWaitTime 0.5>>
+    <<wait 4>>
+    <<switchIdentity Dialogue f>>
+    thanks
+    <<SetWaitTime 0.5>>
+    <<wait 2>>
+    we will
+    <<SetWaitTime 0.5>>
+    <<wait 1>>
+    :)
+    <<SetWaitTime 0.5>>
+    <<wait 2>>
+    <<SetSceneEnd GameManager>>
+    <<wait 4>>
+    <<StartNextScene GameManager>>
 ===
 title: Scene5
 tags: 
 colorID: 0
-position: 1831,658
+position: 1819,642
 ---
-Empty Text
-===
-title: Node
-tags: 
-colorID: 0
-position: 238,874
----
-
+<<SetLie1 false>>
+<<SetLie2 false>>
+<<AddTimer Dialogue>>
+<<wait 2>>
+<<switchIdentity Dialogue self>>
+Hey
+<<SetWaitTime 2>>
+<<wait 2>>
+<<switchIdentity Dialogue f>>
+hey
+<<SetWaitTime 2>>
+-> you good recently?
+    <<switchIdentity Dialogue self>>
+    you good recently?
+    <<SetWaitTime 2>>
+-> How's life?
+    <<switchIdentity Dialogue self>>
+    How's life?
+    <<SetWaitTime 2>>
+<<wait 2>>
+<<switchIdentity Dialogue f>>
+yeah, it's pretty good
+<<SetWaitTime 2>>
+<<wait 1>>
+same like before
+<<SetWaitTime 1.5>>
+you?
+<<SetWaitTime 1>>
+<<SetLie1 true>>
+->I'm good
+    <<SetLie1 false>>
+    <<switchIdentity Dialogue self>>
+    Yeah, I'm good too
+    <<SetWaitTime 1>>
+->same like before too
+    <<SetLie1 false>>
+    <<switchIdentity Dialogue self>>
+    same like before too :)
+    <<SetWaitTime 1>>
+<<wait 2>>
+-> how's board game?
+    <<switchIdentity Dialogue self>>
+    How's the board game event?
+    <<SetWaitTime 2>>
+    Do you still play every weekend?
+    <<SetWaitTime 1>>
+    <<switchIdentity Dialogue f>>
+    <<wait 3>>
+    Yeah, I still do
+    <<SetWaitTime 1.5>>
+    <<wait 1>>
+    <<switchIdentity Dialogue self>>
+    cool
+    <<SetWaitTime 1>>
+<<wait 1>>
+-> how's your friends?
+    <<switchIdentity Dialogue self>>
+    How's your friends?
+    <<SetWaitTime 1.5>>
+    <<wait 2>>
+    <<switchIdentity Dialogue f>>
+    yeah, they are all good
+    <<SetWaitTime 2.5>>
+    <<wait 3>>
+    actually
+    <<SetWaitTime 1>>
+    I'm dating one of them
+    <<SetWaitTime 2>>
+    <<wait 2>>
+    <<SetLie1 true>>
+    -> hope you two are happy
+        <<switchIdentity Dialogue self>>
+        <<SetLie1 false>>
+        I hope you two are happy :)
+        <<SetWaitTime 2>>
+    -> hope you are happy
+        <<SetLie1 false>>
+        <<switchIdentity Dialogue self>>
+        It's good as long as you are happy :)
+        <<SetWaitTime 2>>
+<<switchIdentity Dialogue f>>
+<<wait 2>>
+-> I'm joining another project
+    <<switchIdentity Dialogue self>>
+    btw
+    <<SetWaitTime 0.5>>
+    I'm moving my desks to the other side
+    <<SetWaitTime 0.5>>
+    joining another project
+    <<SetWaitTime 1>>
+    <<switchIdentity Dialogue f>>
+    <<wait 2.5>>
+    That's good for you!
+    <<SetWaitTime 2.5>>
+    <<wait 0.5>>
+    You deserve better projects
+    <<SetWaitTime 3>>
+<<wait 2>>
+->Thanks
+    <<switchIdentity Dialogue self>>
+    Thanks
+    <<SetWaitTime 1>>
+<<wait 2>>
+<<SetLie2 true>>
+-> guess I'll be away
+    <<switchIdentity Dialogue self>>
+    guess I'll be away for some time
+    <<SetWaitTime 1>>
+-> Goodbye
+    <<switchIdentity Dialogue self>>
+    I'll see you around, F.
+    <<SetWaitTime 2>>
+    Goodbye.
+    <<SetWaitTime 1>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    Goodbye.
+    <<SetWaitTime 5>>
+    <<wait 3>>
+    <<SetSceneEnd GameManager>>
+    <<wait 1>>
+    <<GameOver GameManager>>
+<<wait 2>>
+-> will still say hi
+    <<switchIdentity Dialogue self>>
+    I'll still come and say hi
+    <<SetWaitTime 2>>
+-> Goodbye
+    <<switchIdentity Dialogue self>>
+    I'll see you around, F.
+    <<SetWaitTime 2>>
+    Goodbye.
+    <<SetWaitTime 1>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    Goodbye.
+    <<SetWaitTime 5>>
+    <<wait 3>>
+    <<SetSceneEnd GameManager>>
+    <<wait 1>>
+    <<GameOver GameManager>>
+<<wait 2>>
+-> Maybe coffee next time
+    <<switchIdentity Dialogue self>>
+    We should go buy coffee next time.
+    <<SetWaitTime 1>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    sure
+    <<SetWaitTime 3>>
+-> Goodbye
+    <<switchIdentity Dialogue self>>
+    I'll see you around, F.
+    <<SetWaitTime 2>>
+    Goodbye.
+    <<SetWaitTime 1>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    Goodbye.
+    <<SetWaitTime 5>>
+    <<wait 3>>
+    <<SetSceneEnd GameManager>>
+    <<wait 1>>
+    <<GameOver GameManager>>
+<<wait 2>>
+-> will tell you good shows
+    <<switchIdentity Dialogue self>>
+    I'll tell you if I see any good shows
+    <<SetWaitTime 1>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    me too!
+    <<SetWaitTime 3>>
+-> Goodbye
+    <<switchIdentity Dialogue self>>
+    I'll see you around, F.
+    <<SetWaitTime 2>>
+    Goodbye.
+    <<SetWaitTime 1>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    Goodbye.
+    <<SetWaitTime 5>>
+    <<wait 3>>
+    <<SetSceneEnd GameManager>>
+    <<wait 1>>
+    <<GameOver GameManager>>
+<<switchIdentity Dialogue f>>
+<<wait 2>>
+<<SetLie1 true>>
+<<SetLie2 true>>
+-> Goodbye
+    <<switchIdentity Dialogue self>>
+    I'll see you around, F.
+    <<SetWaitTime 2>>
+    Goodbye.
+    <<SetWaitTime 1>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    Goodbye.
+    <<SetWaitTime 5>>
+    <<wait 3>>
+    <<SetSceneEnd GameManager>>
+    <<wait 1>>
+    <<GameOver GameManager>>
+-> Goodbye
+    <<switchIdentity Dialogue self>>
+    I'll see you around, F.
+    <<SetWaitTime 2>>
+    Goodbye.
+    <<SetWaitTime 1>>
+    <<wait 3>>
+    <<switchIdentity Dialogue f>>
+    Goodbye.
+    <<SetWaitTime 5>>
+    <<wait 3>>
+    <<SetSceneEnd GameManager>>
+    <<wait 1>>
+    <<GameOver GameManager>>
 ===

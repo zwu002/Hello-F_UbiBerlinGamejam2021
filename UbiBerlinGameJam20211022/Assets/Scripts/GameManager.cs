@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
     public bool isPaused = false;
 
     public Animator anim;
+
+    public GameObject goodbyeText;
+
     void Awake()
     {
-        currentScene = 1;
+        goodbyeText.SetActive(false);
 
         StartCoroutine(StartScene());
     }
@@ -55,7 +58,7 @@ public class GameManager : MonoBehaviour
     [YarnCommand("StartNextScene")]
     public void StartNextScene()
     {
-        StartCoroutine(StartScene());
+        if (!isGameOver) StartCoroutine(StartScene());
     }
 
 
@@ -71,9 +74,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    [YarnCommand("GameOver")]
     public void GameOver()
     {
         isGameOver = true;
+
+        goodbyeText.SetActive(true);
 
         Debug.Log("Game Over!");
 
