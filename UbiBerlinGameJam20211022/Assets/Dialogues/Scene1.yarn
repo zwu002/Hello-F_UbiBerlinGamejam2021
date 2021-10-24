@@ -1,12 +1,11 @@
 title: Scene1
 tags: 
 colorID: 0
-position: 891,660
+position: 888,659
 ---
 <<switchIdentity Dialogue f>>
 Yo
 <<SetWaitTime 1>>
-<<wait 0.5>>
 Yoyoyo
 <<SetWaitTime 1.5>>
 yoyoyoyoyoyoyoyooooooooooo
@@ -17,9 +16,10 @@ Is hotdog a sandwich?
 <<SetLie1 true>>
 -> Yes
     <<switchIdentity Dialogue self>>
+    eghhh
+    <<SetWaitTime 1>>
     Yes?
-    <<wait 0.5>>
-    <<SetWaitTime 0>>
+    <<SetWaitTime 1>>
     <<switchIdentity Dialogue f>>
     And coffee is the best bean soup!
     <<SetWaitTime 2.5>>
@@ -27,8 +27,7 @@ Is hotdog a sandwich?
     -> YEAH!!!
     <<switchIdentity Dialogue self>>
     YEAH!!!!!!
-    <<wait 0.5>>
-    <<SetWaitTime 0.5>>
+    <<SetWaitTime 1>>
 -> No!
     <<switchIdentity Dialogue self>>
     ..no?

@@ -1019,7 +1019,19 @@ MonoBehaviour:
       m_Calls: []
   onLineStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1985129368}
+        m_TargetAssemblyTypeName: GenerateDialogue, Assembly-CSharp
+        m_MethodName: SelfWaitingStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onLineFinishDisplaying:
     m_PersistentCalls:
       m_Calls:
@@ -1038,6 +1050,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1221839062}
         m_TargetAssemblyTypeName: AutoScroll, Assembly-CSharp
         m_MethodName: ScrollToBottom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1985129368}
+        m_TargetAssemblyTypeName: GenerateDialogue, Assembly-CSharp
+        m_MethodName: SelfWaitingEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1080,33 +1104,9 @@ MonoBehaviour:
   onOptionsStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1985129368}
-        m_TargetAssemblyTypeName: GenerateDialogue, Assembly-CSharp
-        m_MethodName: CreateSelfWaitingDialogue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1221839062}
         m_TargetAssemblyTypeName: AutoScroll, Assembly-CSharp
         m_MethodName: ScrollToBottom
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 690348149}
-        m_TargetAssemblyTypeName: SetTextSpeed, Assembly-CSharp
-        m_MethodName: AddTextSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1119,33 +1119,9 @@ MonoBehaviour:
   onOptionsEnd:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1985129368}
-        m_TargetAssemblyTypeName: GenerateDialogue, Assembly-CSharp
-        m_MethodName: DestroySelfWaitingDialogue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1221839062}
         m_TargetAssemblyTypeName: AutoScroll, Assembly-CSharp
         m_MethodName: ScrollToBottom
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 690348149}
-        m_TargetAssemblyTypeName: SetTextSpeed, Assembly-CSharp
-        m_MethodName: RemoveTextSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2424,6 +2400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 690348147}
+  dialogueUI: {fileID: 690348146}
   isSelf: 0
   currentText: {fileID: 1242075867}
   selfDialogue: {fileID: 6730140749988214624, guid: 02442431438a1064a85edf571c0948bb, type: 3}

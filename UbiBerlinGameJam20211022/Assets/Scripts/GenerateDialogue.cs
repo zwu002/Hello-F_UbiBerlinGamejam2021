@@ -7,6 +7,7 @@ using TMPro;
 public class GenerateDialogue : MonoBehaviour
 {
     public DialogueRunner dialogueRunner;
+    public DialogueUI dialogueUI;
 
     public bool isSelf = false;
 
@@ -41,20 +42,41 @@ public class GenerateDialogue : MonoBehaviour
 
     private IEnumerator DoWait(System.Action onComplete, float time)
     {
-        answerText.SetActive(false);
-
         GameObject waitingDialogue = CreateFWaitingDialogue();
 
         yield return new WaitForSeconds(time - 0.5f);
 
         Destroy(waitingDialogue);
 
-        CreateDialogue();
+        CreateFDialogue();
 
         yield return new WaitForSeconds(0.5f);
 
         onComplete();
     }
+
+    public void SelfWaitingStart()
+    {
+        if (isSelf)
+        {
+            currentSelfWaitDialogue = CreateSelfWaitingDialogue();
+
+            answerText.SetActive(true);
+        }
+    }
+
+    public void SelfWaitingEnd()
+    {
+        if (isSelf)
+        {
+            Destroy(currentSelfWaitDialogue);
+
+            CreateSelfDialogue();
+
+            answerText.SetActive(false);
+        }
+    }
+
 
     [YarnCommand("switchIdentity")]
     public void switchIdentity(string identity)
@@ -62,27 +84,21 @@ public class GenerateDialogue : MonoBehaviour
         if (identity == "self")
         {
             isSelf = true;
+            dialogueUI.textSpeed = 0.08f;
+            answerText.SetActive(true);
         }
         else
         {
             isSelf = false;
-        }
-    }
-
-    public void CreateDialogue()
-    {
-        if (isSelf)
-        {
-            CreateSelfDialogue();
-        }
-        else
-        {
-            CreateFDialogue();
+            dialogueUI.textSpeed = 0f;
+            answerText.SetActive(false);
         }
     }
 
     void CreateFDialogue()
     {
+        if (isSelf) return;
+
         GameObject newDialogue = Instantiate(fDialogue, new Vector3(0,0,0), Quaternion.identity, gameObject.transform);
         newDialogue.GetComponent<InitiateDialogueContent>().InitiateText(currentText.text);
 
@@ -91,30 +107,28 @@ public class GenerateDialogue : MonoBehaviour
 
     public void CreateSelfDialogue()
     {
+        if (!isSelf) return;
+
         GameObject newDialogue = Instantiate(selfDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
         newDialogue.GetComponent<InitiateDialogueContent>().InitiateText(currentText.text);
 
         Debug.Log("Self Dialogue Created!");
     }
 
-    public void CreateSelfWaitingDialogue()
+    GameObject CreateSelfWaitingDialogue()
     {
-        currentSelfWaitDialogue = Instantiate(selfWaitDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
+        if (!isSelf) return null;
+
+        GameObject newDialogue = Instantiate(selfWaitDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
 
         Debug.Log("Self Dialogue Waiting Created!");
-    }
 
-    public void DestroySelfWaitingDialogue()
-    {
-        Destroy(currentSelfWaitDialogue);
+        return newDialogue;
     }
 
     GameObject CreateFWaitingDialogue()
     {
-        if (isSelf)
-        {
-            return null;
-        }
+        if (isSelf) return null;
 
         GameObject newDialogue = Instantiate(fWaitDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
 
