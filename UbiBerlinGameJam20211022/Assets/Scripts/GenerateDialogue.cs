@@ -8,6 +8,10 @@ public class GenerateDialogue : MonoBehaviour
 {
     public GameManager gameManager;
 
+    public AudioSource messageReceivedSound;
+    public AudioSource typingSound;
+    public AudioSource messageSentSound;
+
     public DialogueRunner dialogueRunner;
     public DialogueUI dialogueUI;
 
@@ -102,6 +106,8 @@ public class GenerateDialogue : MonoBehaviour
             autoScroll.ScrollToBottom();
 
             answerText.SetActive(true);
+
+            typingSound.Play();
         }
     }
 
@@ -116,6 +122,8 @@ public class GenerateDialogue : MonoBehaviour
             autoScroll.ScrollToBottom();
 
             answerText.SetActive(false);
+
+            typingSound.Stop();
         }
     }
 
@@ -145,6 +153,8 @@ public class GenerateDialogue : MonoBehaviour
         newDialogue.GetComponent<InitiateDialogueContent>().InitiateText(currentText.text);
 
         Debug.Log("F Dialogue Created!");
+
+        messageReceivedSound.Play();
     }
 
     public void CreateSelfDialogue()
@@ -155,6 +165,8 @@ public class GenerateDialogue : MonoBehaviour
         newDialogue.GetComponent<InitiateDialogueContent>().InitiateText(currentText.text);
 
         Debug.Log("Self Dialogue Created!");
+
+        messageSentSound.Play();
     }
 
     GameObject CreateSelfWaitingDialogue()
