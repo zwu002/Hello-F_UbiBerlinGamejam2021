@@ -1,9 +1,10 @@
 title: Scene1
 tags: 
 colorID: 0
-position: 884,654
+position: 884,653
 ---
 <<switchIdentity Dialogue f>>
+<<AddTimer Dialogue>>
 Yo
 <<SetWaitTime 1>>
 Yoyoyo
@@ -55,6 +56,7 @@ colorID: 7
 position: 1117,655
 ---
 <<switchIdentity Dialogue f>>
+<<AddTimer Dialogue>>
 This is Scene 2!!!
 <<SetWaitTime 1>>
 Yoyoyo

@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(StartScene());
     }
+    public static GameManager GetInstance()
+    {
+        return instance;
+    }
 
     public IEnumerator StartScene()
     {
@@ -54,11 +58,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartScene());
     }
 
-
-    public static GameManager GetInstance()
-    {
-        return instance;
-    }
 
     public void Pause()
     {

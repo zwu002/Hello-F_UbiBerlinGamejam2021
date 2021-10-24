@@ -6,6 +6,8 @@ using TMPro;
 
 public class GenerateDialogue : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public DialogueRunner dialogueRunner;
     public DialogueUI dialogueUI;
 
@@ -20,6 +22,7 @@ public class GenerateDialogue : MonoBehaviour
 
     public GameObject selfWaitDialogue;
     public GameObject fWaitDialogue;
+    public GameObject timer;
 
     public GameObject currentSelfWaitDialogue;
 
@@ -33,6 +36,31 @@ public class GenerateDialogue : MonoBehaviour
             "SetWaitTime",     // the name of the command
             SetWaitTime // the method to run
         );
+    }
+
+    [YarnCommand("AddTimer")]
+    public void AddTimer()
+    {
+        GameObject newTimer = Instantiate(timer, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
+
+        switch (gameManager.currentScene)
+        {
+            case 1:
+                newTimer.GetComponent<TextMeshProUGUI>().text = "10/24";
+                break;
+
+            case 2:
+                newTimer.GetComponent<TextMeshProUGUI>().text = "10/27";
+                break;
+
+            case 3:
+                newTimer.GetComponent<TextMeshProUGUI>().text = "11/3";
+                break;
+
+            case 4:
+                newTimer.GetComponent<TextMeshProUGUI>().text = "11/4";
+                break;
+        }
     }
 
     private void SetWaitTime(string[] parameters, System.Action onComplete)

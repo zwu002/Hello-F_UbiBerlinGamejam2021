@@ -2413,6 +2413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1963c49ef86030348bc70106164ab74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1132944911}
   dialogueRunner: {fileID: 690348147}
   dialogueUI: {fileID: 690348146}
   autoScroll: {fileID: 1221839062}
@@ -2422,6 +2423,7 @@ MonoBehaviour:
   fDialogue: {fileID: 6730140749988214624, guid: 422864c43081b5c4696ca6bbb8c5f445, type: 3}
   selfWaitDialogue: {fileID: 6730140749988214624, guid: 2d18d4d7f583e534d923876d3ea605fb, type: 3}
   fWaitDialogue: {fileID: 6730140749988214624, guid: bde134b6944ab0049b9a5856030c8181, type: 3}
+  timer: {fileID: 1579489573374455945, guid: a7ce6721dedbb5349819f813ed7b90ef, type: 3}
   currentSelfWaitDialogue: {fileID: 0}
   answerText: {fileID: 1242075865}
   waitTime: 0
