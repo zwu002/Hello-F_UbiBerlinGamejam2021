@@ -1,26 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class GameManager : MonoBehaviour
 {
     static GameManager instance = null;
 
+    public DialogueRunner dialogueRunner;
+
+    public int currentScene = 1;
+
     public bool isGameOver = false;
     public bool isPaused = false;
 
-    public GameObject mainHUD;
-    public GameObject gameOverUI;
-
+    public Animator anim;
     void Awake()
     {
-        
+        currentScene = 1;
+
+        StartCoroutine(StartScene());
     }
 
-    void Update()
+    public IEnumerator StartScene()
     {
-        
+        anim.Play("StartScene");
+
+        Debug.Log("Start scene");
+
+        yield return new WaitForSeconds(3f);
+
+        StartDialogue();
     }
+
+    public void StartDialogue()
+    {
+        dialogueRunner.StartDialogue("Scene" + currentScene.ToString());
+
+        currentScene++;
+
+        Debug.Log("Start Dialogue");
+    }
+
+    [YarnCommand("SetSceneEnd")]
+    public void SetSceneEnd()
+    {
+        anim.Play("EndScene");
+    }
+
+    [YarnCommand("StartNextScene")]
+    public void StartNextScene()
+    {
+        StartCoroutine(StartScene());
+    }
+
 
     public static GameManager GetInstance()
     {
@@ -46,8 +79,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over!");
 
         Time.timeScale = 0f;
-
-        mainHUD.SetActive(false);
-        gameOverUI.SetActive(true);
     }
 }

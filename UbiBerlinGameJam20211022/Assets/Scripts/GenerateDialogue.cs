@@ -9,6 +9,8 @@ public class GenerateDialogue : MonoBehaviour
     public DialogueRunner dialogueRunner;
     public DialogueUI dialogueUI;
 
+    public AutoScroll autoScroll;
+
     public bool isSelf = false;
 
     public TextMeshProUGUI currentText;
@@ -44,13 +46,21 @@ public class GenerateDialogue : MonoBehaviour
     {
         GameObject waitingDialogue = CreateFWaitingDialogue();
 
-        yield return new WaitForSeconds(time - 0.5f);
+        yield return new WaitForSeconds(0.05f);
+
+        autoScroll.ScrollToBottom();
+
+        yield return new WaitForSeconds(time - 0.55f);
 
         Destroy(waitingDialogue);
 
         CreateFDialogue();
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.05f);
+
+        autoScroll.ScrollToBottom();
+
+        yield return new WaitForSeconds(0.45f);
 
         onComplete();
     }
@@ -60,6 +70,8 @@ public class GenerateDialogue : MonoBehaviour
         if (isSelf)
         {
             currentSelfWaitDialogue = CreateSelfWaitingDialogue();
+
+            autoScroll.ScrollToBottom();
 
             answerText.SetActive(true);
         }
@@ -72,6 +84,8 @@ public class GenerateDialogue : MonoBehaviour
             Destroy(currentSelfWaitDialogue);
 
             CreateSelfDialogue();
+
+            autoScroll.ScrollToBottom();
 
             answerText.SetActive(false);
         }
@@ -123,6 +137,8 @@ public class GenerateDialogue : MonoBehaviour
 
         Debug.Log("Self Dialogue Waiting Created!");
 
+        autoScroll.ScrollToBottom();
+
         return newDialogue;
     }
 
@@ -133,6 +149,8 @@ public class GenerateDialogue : MonoBehaviour
         GameObject newDialogue = Instantiate(fWaitDialogue, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
 
         Debug.Log("f Dialogue Waiting Created!");
+
+        autoScroll.ScrollToBottom();
 
         return newDialogue;
     }
