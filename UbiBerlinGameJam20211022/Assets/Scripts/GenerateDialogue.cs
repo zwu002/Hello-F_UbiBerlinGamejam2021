@@ -54,15 +54,19 @@ public class GenerateDialogue : MonoBehaviour
                 break;
 
             case 2:
-                newTimer.GetComponent<TextMeshProUGUI>().text = "10/27";
-                break;
-
-            case 3:
                 newTimer.GetComponent<TextMeshProUGUI>().text = "11/3";
                 break;
 
+            case 3:
+                newTimer.GetComponent<TextMeshProUGUI>().text = "11/20";
+                break;
+
             case 4:
-                newTimer.GetComponent<TextMeshProUGUI>().text = "11/4";
+                newTimer.GetComponent<TextMeshProUGUI>().text = "1/3";
+                break;
+
+            case 5:
+                newTimer.GetComponent<TextMeshProUGUI>().text = "4/12";
                 break;
         }
     }
