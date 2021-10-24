@@ -5,47 +5,90 @@ position: 884,653
 ---
 <<switchIdentity Dialogue f>>
 <<AddTimer Dialogue>>
-Yo
+Hey
 <<SetWaitTime 1>>
-Yoyoyo
-<<SetWaitTime 1.5>>
-yoyoyoyoyoyoyoyooooooooooo
+->Hey!
+    <<switchIdentity Dialogue self>>
+    Hey!
+    <<SetWaitTime 1>>
+->Hello, F!
+    <<switchIdentity Dialogue self>>
+    Hello, F!
+    <<SetWaitTime 1>>
+<<switchIdentity Dialogue f>>
+It's nice talking to you tonight!!
 <<SetWaitTime 2>>
 <<wait 1>>
-Is hotdog a sandwich?
-<<SetWaitTime 2.5>>
-<<SetLie1 true>>
--> Yes
+I can't believe we never chat even we sit this close
+<<SetWaitTime 3.5>>
+->Neither do I!
     <<switchIdentity Dialogue self>>
-    eghhh
-    <<SetWaitTime 1>>
-    Yes?
-    <<SetWaitTime 1>>
-    <<switchIdentity Dialogue f>>
-    And coffee is the best bean soup!
+    I can't believe it too!
+    <<SetWaitTime 2>>
+    And we live so close
+    <<SetWaitTime 2>>
+    <<wait 1>>
+    We should hang out more
     <<SetWaitTime 2.5>>
-    <<SetLie1 false>>
-    -> YEAH!!!
-    <<switchIdentity Dialogue self>>
-    YEAH!!!!!!
+    <<switchIdentity Dialogue f>>
+    No problemo OuO!
     <<SetWaitTime 1>>
+->I notice you before
+    <<switchIdentity Dialogue self>>
+    Acutally, I remember you one time
+    <<SetWaitTime 2.5>>
+    you were running like crazy beside my desk
+    <<SetWaitTime 3>>
+    I guess you are in a hurry and never notice me :P
+    <<SetWaitTime 3>>
+    <<switchIdentity Dialogue f>>
+    OH YEAH!!!
+    <<SetWaitTime 1>>
+    <<wait 1.5>>
+    I was in a hurry meeting my other friends
+    <<SetWaitTime 3>>
+    lol
+    <<SetWaitTime 0.7>>
+    <<wait 2>>
+    But now we met!
+    <<SetWaitTime 1>>
+<<wait 1.5>>
+We got so many chances to play together!!
+<<SetWaitTime 2.5>>
+->Yup >:]
+    <<switchIdentity Dialogue self>>
+    Yup >:]
+    <<SetWaitTime 1>>
+    Don't freak out when I say hi tomorrow
+    <<SetWaitTime 2>>
+<<switchIdentity Dialogue f>>
+ok XD
+<<SetWaitTime 0.7>>
+<<wait 2>>
+Opps, my roommates are callin
+<<SetWaitTime 2>>
+Ima join them for Smush Pros
+<<SetWaitTime 2>>
+<<wait 1>>
+ttyl tomorrow!
+<<SetWaitTime 1>>
+in real life haha
+<<SetWaitTime 2>>
+->Sure, bai!
+    <<switchIdentity Dialogue self>>
+    Sure, bai!
+    <<SetWaitTime 1>>
+    <<wait 2>>
     <<SetSceneEnd GameManager>>
     <<wait 4>>
     <<StartNextScene GameManager>>
--> No!
+->Beat them up!
     <<switchIdentity Dialogue self>>
-    ..no?
-    <<wait 0.5>>
-    <<SetWaitTime 0.5>>
-    <<switchIdentity Dialogue f>>
-    then is sub sandwich a hotdog lying down?
-    <<SetWaitTime 2.5>>
-    <<SetLie1 false>>
-    -> It's a paradox!
-    <<switchIdentity Dialogue self>>
-    It's a paradox!
-    <<wait 0.5>>
-    <<SetWaitTime 0.5>>
+    Time to beat all your roomates!!
+    <<SetWaitTime 2>>
+    baibai!!
+    <<SetWaitTime 1>>
+    <<wait 2>>
     <<SetSceneEnd GameManager>>
     <<wait 4>>
     <<StartNextScene GameManager>>
@@ -55,50 +98,147 @@ tags:
 colorID: 7
 position: 1117,655
 ---
-<<switchIdentity Dialogue f>>
+<<switchIdentity Dialogue self>>
 <<AddTimer Dialogue>>
-This is Scene 2!!!
+Heyo
+<<SetWaitTime 0.5>>
+I saw you watch Nutflex at lunch
 <<SetWaitTime 1>>
-Yoyoyo
-<<SetWaitTime 1.5>>
-yoyoyoyoyoyoyoyooooooooooo
+What ru watchin?
+<<SetWaitTime 0.5>>
+<<wait 3>>
+<<switchIdentity Dialogue f>>
+nah, just some random anime
 <<SetWaitTime 2>>
 <<wait 1>>
-Is hotdog a sandwich?
-<<SetWaitTime 2.5>>
-<<SetLie1 true>>
--> Yes
+what about u?
+<<SetWaitTime 1.5>>
+-> The Octopus Game
     <<switchIdentity Dialogue self>>
-    eghhh
+    Do you know The Optopus Game?
     <<SetWaitTime 1>>
-    Yes?
+    It's a korean show
+    <<SetWaitTime 0.5>>
+    Very very popular!
+    <<SetWaitTime 0.8>>
+<<switchIdentity Dialogue f>>
+OH YEAHHH
+<<SetWaitTime 0.8>>
+<<wait 0.5>>
+I saaw it everywherer!
+<<SetWaitTime 1.3>>
+<<wait 1>>
+Are u watching it now?
+<<SetWaitTime 2>>
+-> Yeah!
+    <<switchIdentity Dialogue self>>
+    Yeah!!
+    <<SetWaitTime 0.8>>
+    I'm like half through
+    <<SetWaitTime 1.5>>
+    <<switchIdentity Dialogue f>>
+    Is it nice?
+    <<SetWaitTime 1.5>>
+    <<wait 1>>
+    I'm going to watch it this week!
+    <<SetWaitTime 2>>
+    <<wait 2>>
+-> I love episode 5..
+    <<switchIdentity Dialogue self>>
+    Yeah, episode 5 is the best
+    <<SetWaitTime 1.5>>
+    like, really emotional
     <<SetWaitTime 1>>
     <<switchIdentity Dialogue f>>
-    And coffee is the best bean soup!
-    <<SetWaitTime 2.5>>
-    <<SetLie1 false>>
-    -> YEAH!!!
-    <<switchIdentity Dialogue self>>
-    YEAH!!!!!!
+    SHUT UP
+    <<SetWaitTime 0.6>>
+    ASDJKLA
+    <<SetWaitTime 0.6>>
+    ASFJHDJKGFHDSGFH
     <<SetWaitTime 1>>
-    <<SetSceneEnd GameManager>>
-    <<wait 4>>
-    <<StartNextScene GameManager>>
--> No!
-    <<switchIdentity Dialogue self>>
-    ..no?
-    <<wait 0.5>>
+    NO SPOILERS
+    <<SetWaitTime 0.6>>
+    I'm wathing myself
+    <<SetWaitTime 1>>
+    <<wait 2>>
+<<switchIdentity Dialogue self>>
+Sure haha
+<<SetWaitTime 1>>
+-> Tell me what you think!
+    Remember to tell me if you like it!
+    <<SetWaitTime 0.5>>
+    I really enjoy it!
+    <<SetWaitTime 0.5>>
+    <<wait 2>>
+    <<switchIdentity Dialogue f>>
+    I definitely will!
+    <<SetWaitTime 1.5>>
+    -> Will recommend more
+        <<switchIdentity Dialogue self>>
+        I'll recommend more shows in the future!
+        <<SetWaitTime 0.5>>
+-> We can watch together
+    <<wait 1>>
+    actually, I was thinking
+    <<SetWaitTime 1>>
+    <<wait 1>>
+    maybe we can watch together at lunch?
+    <<SetWaitTime 1>>
+    I don't mind watching previous episodes again!
     <<SetWaitTime 0.5>>
     <<switchIdentity Dialogue f>>
-    then is sub sandwich a hotdog lying down?
-    <<SetWaitTime 2.5>>
-    <<SetLie1 false>>
-    -> It's a paradox!
-    <<switchIdentity Dialogue self>>
-    It's a paradox!
-    <<wait 0.5>>
-    <<SetWaitTime 0.5>>
-    <<SetSceneEnd GameManager>>
-    <<wait 4>>
-    <<StartNextScene GameManager>>
+    <<wait 3>>
+    Yeah, why not
+    <<SetWaitTime 4>>
+    <<wait 1>>
+    but remember
+    <<SetWaitTime 1>>
+    NO SPOILERS
+    <<SetWaitTime 1>>
+    ->I promise
+        <<switchIdentity Dialogue self>>
+        You got my promise XD
+        <<SetWaitTime 1>>
+<<wait 2>>
+<<switchIdentity Dialogue self>>
+yo, I got some work to do
+<<SetWaitTime 1>>
+I'll see you tomorrow then!
+<<SetWaitTime 0.5>>
+<<wait 2>>
+<<switchIdentity Dialogue f>>
+see you!!!
+<<SetWaitTime 0.5>>
+<<wait 2>>
+<<SetSceneEnd GameManager>>
+<<wait 4>>
+<<StartNextScene GameManager>>
+===
+title: Scene3
+tags: 
+colorID: 0
+position: 1344,644
+---
+Empty Text
+===
+title: Scene4
+tags: 
+colorID: 0
+position: 1583,647
+---
+Empty Text
+===
+title: Scene5
+tags: 
+colorID: 0
+position: 1831,658
+---
+Empty Text
+===
+title: Node
+tags: 
+colorID: 0
+position: 238,874
+---
+
 ===
